@@ -16,7 +16,7 @@ This repository contains the foundational code and assets required to construct 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/MeiseiTechnologies/ZoraNT.git
+   https://github.com/Plutomaster28/ZoraNT.git
    cd ZoraNT
 
 2. **Install Dependencies**
