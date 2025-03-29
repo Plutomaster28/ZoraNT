@@ -1,0 +1,30 @@
+* {
+    font-family: "MS Sans Serif", sans-serif;
+    background-color: #C0C0C0;
+    color: #000000;
+}
+
+button {
+    background-color: #E0E0E0;
+    border: 1px solid #808080;
+}
+
+entry {
+    background-color: #FFFFFF;
+    border: 1px solid #808080;
+}
+
+textview {
+    background-color: #FFFFFF;
+    border: 1px solid #808080;
+}
+
+toolbar {
+    background-color: #C0C0C0;
+    border: 1px solid #808080;
+}
+
+statusbar {
+    background-color: #C0C0C0;
+    border: 1px solid #808080;
+}

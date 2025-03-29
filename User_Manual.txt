@@ -1,0 +1,26 @@
+Welcome to the user manual for ZoraNT!
+
+This file here is meant to guide you on how to setup the necessary things to have Zora actually run since I'm too stupid to make proper applications!
+
+---
+
+Windows Installation Process:
+
+First thing you'll want to do is install MSYS2. Keep everything in its default place as anything custom will break EVERYTHING.
+
+Included inside the ZoraNT Source file will be two script, one being a batch script and the other being a Powershell script (ending in .bat and .ps1 respectivly, DO NOT click on the shell scripts);
+they both do the same thing. It all just depends on which one you want to use.
+
+When running either script, make sure they're in the same directory as the shell scripts and desktop source code!
+
+It's recommended to run the batch script though (the file that ends with .bat) since its more well...automatic and easier to fix if broken.
+
+All it's doing is checking if MSYS2 is installed, then it'll automatically open it, switch to the proper directory, and run the setup script (autostart script is seperate)
+
+Of course (if you really want to) you could setup the environment manually. To what degree you do it though is your own preference; the windows specific scripts
+were made simply for people who don't really know any of the commands.
+
+Now, you simply run the quick_run script and it'll start, just like magic!
+If you want top quit everything, simply just close out of MSYS2 (shutdown ZoraNT before doing so though!) since it's the lifeline of any program I make-
+
+---

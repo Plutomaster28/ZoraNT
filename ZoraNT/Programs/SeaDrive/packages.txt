@@ -1,0 +1,2 @@
+example-package path/to/example-package/files
+another-package path/to/another-package/files

@@ -1,0 +1,32 @@
+window {
+    background-color: #3a6ea5; /* Windows 2000 default desktop background color */
+}
+
+#taskbar {
+    background-color: #d4d0c8; /* Windows 2000 taskbar color */
+    border-top: 2px solid #808080; /* Add a border to the top of the taskbar */
+    padding: 2px;
+}
+
+#start_button {
+    background-color: #d4d0c8;
+    border: 1px solid #808080;
+    padding: 2px 5px;
+    font-family: "Tahoma", sans-serif;
+    font-size: 10pt;
+}
+
+#taskbar_button {
+    background-color: #d4d0c8;
+    border: 1px solid #808080;
+    padding: 2px 5px;
+    font-family: "Tahoma", sans-serif;
+    font-size: 10pt;
+    margin-right: 2px;
+}
+
+#clock_label {
+    font-family: "Tahoma", sans-serif;
+    font-size: 10pt;
+    color: #000000;
+}

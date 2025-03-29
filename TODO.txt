@@ -1,0 +1,57 @@
+Issues you MIGHT want to fix:
+
+$ ./quick_compile.sh
+Compiling the application...
+new_desktopmain_nt.c: In function 'create_start_menu':
+new_desktopmain_nt.c:90:13: warning: 'gtk_image_menu_item_new_with_label' is deprecated: Use 'gtk_menu_item_new_with_label' instead [-Wdeprecated-declarations]
+   90 |             GtkWidget *program_item = gtk_image_menu_item_new_with_label(entry->d_name);
+      |             ^~~~~~~~~
+In file included from C:/msys64/ucrt64/include/gtk-3.0/gtk/gtk.h:269,
+                 from new_desktopmain_nt.c:2:
+C:/msys64/ucrt64/include/gtk-3.0/gtk/deprecated/gtkimagemenuitem.h:80:12: note: declared here
+   80 | GtkWidget* gtk_image_menu_item_new_with_label    (const gchar      *label);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+new_desktopmain_nt.c:91:13: warning: 'gtk_image_menu_item_set_image' is deprecated [-Wdeprecated-declarations]
+   91 |             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(program_item), icon);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/msys64/ucrt64/include/gtk-3.0/gtk/deprecated/gtkimagemenuitem.h:92:12: note: declared here
+   92 | void       gtk_image_menu_item_set_image         (GtkImageMenuItem *image_menu_item,
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+new_desktopmain_nt.c:91:13: warning: 'gtk_image_menu_item_get_type' is deprecated: Use 'gtk_menu_item_get_type' instead [-Wdeprecated-declarations]
+   91 |             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(program_item), icon);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/msys64/ucrt64/include/gtk-3.0/gtk/deprecated/gtkimagemenuitem.h:76:12: note: declared here
+   76 | GType      gtk_image_menu_item_get_type          (void) G_GNUC_CONST;
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+new_desktopmain_nt.c: In function 'on_file_activated':
+new_desktopmain_nt.c:288:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  288 |         if ((int)result <= 32) {
+      |             ^
+new_desktopmain_nt.c:289:53: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  289 |             g_printerr("Failed to open file: %d\n", (int)result);
+      |                                                     ^
+new_desktopmain_nt.c: In function 'open_network_settings':
+new_desktopmain_nt.c:638:68: warning: initialization discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  638 |     if (!g_spawn_async(NULL, (gchar *[]){"cmd.exe", "/c", "start", netdig_path, NULL}, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error)) {
+      |                                                                    ^~~~~~~~~~~
+new_desktopmain_nt.c: In function 'load_profiles':
+new_desktopmain_nt.c:672:9: warning: 'gtk_image_menu_item_new_with_label' is deprecated: Use 'gtk_menu_item_new_with_label' instead [-Wdeprecated-declarations]
+  672 |         GtkWidget *profile_item = gtk_image_menu_item_new_with_label(entry->d_name);
+      |         ^~~~~~~~~
+C:/msys64/ucrt64/include/gtk-3.0/gtk/deprecated/gtkimagemenuitem.h:80:12: note: declared here
+   80 | GtkWidget* gtk_image_menu_item_new_with_label    (const gchar      *label);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+new_desktopmain_nt.c:673:9: warning: 'gtk_image_menu_item_set_image' is deprecated [-Wdeprecated-declarations]
+  673 |         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(profile_item), icon);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/msys64/ucrt64/include/gtk-3.0/gtk/deprecated/gtkimagemenuitem.h:92:12: note: declared here
+   92 | void       gtk_image_menu_item_set_image         (GtkImageMenuItem *image_menu_item,
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+new_desktopmain_nt.c:673:9: warning: 'gtk_image_menu_item_get_type' is deprecated: Use 'gtk_menu_item_get_type' instead [-Wdeprecated-declarations]
+  673 |         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(profile_item), icon);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/msys64/ucrt64/include/gtk-3.0/gtk/deprecated/gtkimagemenuitem.h:76:12: note: declared here
+   76 | GType      gtk_image_menu_item_get_type          (void) G_GNUC_CONST;
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compilation successful! Output: ZoraNT.exe
+
