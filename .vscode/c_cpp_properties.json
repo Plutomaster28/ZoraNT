@@ -25,6 +25,25 @@
             "intelliSenseMode": "windows-gcc-x64",
             "cStandard": "c11",
             "cppStandard": "c++17"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/gtk-3.0",
+                "/usr/include/glib-2.0",
+                "/usr/include/**",
+                "/usr/lib/**",
+                "/usr/include/gstreamer-1.0/gst",
+                "/usr/include/gstreamer-1.0",
+                "/usr/include/json-glib-1.0/json-glib",
+                "/usr/include/json-glib-1.0"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/gcc"
         }
     ],
     "version": 4
