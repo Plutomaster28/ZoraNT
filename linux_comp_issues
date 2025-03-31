@@ -1,0 +1,10 @@
+Issues with linux compatibility:
+
+Not sure if the the programs icons not showing the default theme being used is a problem with
+the program (our end), or is a problem with the formatting (also our end)
+
+Problems:
+
+Icons not showing
+Have to add compiler logic conditions to determine compilation runtime arguments
+Not sure if I broke it or not (If I did revert to previous stable vrsion)
