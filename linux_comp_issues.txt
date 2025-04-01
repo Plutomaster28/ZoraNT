@@ -9,3 +9,7 @@ Icons not showing (Create function where if on a linux system, default to a png 
 Have the program apply the appropriate theme to the program too
 Have to add compiler logic conditions to determine compilation runtime arguments
 Not sure if I broke it or not (If I did revert to previous stable vrsion)
+
+start menu is not working as expected on linux
+
+ALWAYS MAKE SURE TO TEST THE PROGRAM ON WINDOWS IF ANY CHANGES ARE MADE.
