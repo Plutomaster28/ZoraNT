@@ -53,7 +53,7 @@ export PATH="/ucrt64/bin:$PATH"
 
 # Copy the etc directory to the ucrt64 environment
 echo "Copying etc directory to the ucrt64 environment..."
-cp -r ./ZoraNT/Sys404/etc/* /ucrt64/etc/
+cp -r ../../../ZoraNT/Sys404/etc/* /ucrt64/etc/
 if [ $? -ne 0 ]; then
     echo "Failed to copy etc directory."
     exit 1
@@ -61,7 +61,7 @@ fi
 
 # Copy the theme directory into the share/themes directory in the ucrt64 environment
 echo "Copying theme directory to the ucrt64 environment..."
-cp -r ./ZoraNT/Sys404/themes/* /ucrt64/share/themes/
+cp -r ../../../ZoraNT/Sys404/themes/* /ucrt64/share/themes/
 if [ $? -ne 0 ]; then
     echo "Failed to copy theme directory."
     exit 1
@@ -69,7 +69,7 @@ fi
 
 # Compilation command
 echo "Compiling the application..."
-gcc -o ZoraNT.exe new_desktopmain_nt.c $(pkg-config --cflags --libs gtk+-3.0 gstreamer-1.0 json-glib-1.0)
+gcc -o ../../../ZoraNT.exe ../../../new_desktopmain_nt.c $(pkg-config --cflags --libs gtk+-3.0 gstreamer-1.0 json-glib-1.0)
 if [ $? -ne 0 ]; then
     echo "Failed to compile the application."
     exit 1

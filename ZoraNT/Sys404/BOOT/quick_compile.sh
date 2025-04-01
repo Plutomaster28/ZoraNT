@@ -6,8 +6,8 @@
 export PATH="/ucrt64/bin:$PATH"
 
 # Variables
-OUTPUT="ZoraNT.exe"
-SOURCE="new_desktopmain_nt.c"
+OUTPUT="../../../ZoraNT.exe"
+SOURCE="../../../new_desktopmain_nt.c"
 FLAGS=$(pkg-config --cflags --libs gtk+-3.0 gstreamer-1.0 json-glib-1.0)
 
 # Compilation command

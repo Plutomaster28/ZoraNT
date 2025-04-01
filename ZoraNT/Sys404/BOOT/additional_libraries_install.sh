@@ -9,7 +9,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Compiling complimentary demo..."
-gcc -o test_demo_3D.exe tst3D.c -lfreeglut -lglu32 -lopengl32
+gcc -o ../../../test_demo_3D.exe ../../../tst3D.c -lfreeglut -lglu32 -lopengl32
 if [ $? -ne 0 ]; then
     echo "Failed to compile the application."
     exit 1
