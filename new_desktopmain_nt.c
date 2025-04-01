@@ -797,7 +797,7 @@ void save_profile(const char *profile_name, const char *bio, const char *image_p
     char profile_dir[256];
     snprintf(profile_dir, sizeof(profile_dir), "./ZoraNT/Profile/%s", profile_name);
     #ifdef _WIN32
-        _mkdir(profile_dir); // Windows version of mkdir
+        mkdir(profile_dir); // Windows version of mkdir
     #else
         mkdir(profile_dir, 0755); // Linux version of mkdir with permissions
     #endif
