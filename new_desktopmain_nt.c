@@ -611,6 +611,14 @@ int main(int argc, char *argv[]) {
 
     g_print("Current working directory: %s\n", base_path);
 
+#ifndef _WIN32
+    // Set the GTK theme to Windows-95-master on Linux
+    GtkSettings *settings = gtk_settings_get_default();
+    if (settings) {
+        g_object_set(settings, "gtk-theme-name", "Windows-95-master", NULL);
+    }
+#endif
+
     // Create splash screen
     GtkWidget *splash_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_decorated(GTK_WINDOW(splash_window), FALSE);
