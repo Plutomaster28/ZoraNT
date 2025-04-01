@@ -10,8 +10,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <gst/gst.h>
-#include <windows.h>
 #include <json-glib/json-glib.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#include <sys/stat.h>
+#endif
 
 // all libraries needed to function, if anything is missing from ythe install script please include it
 // main function at line 583
@@ -283,11 +289,23 @@ void on_file_activated(GtkFileChooser *file_chooser, gpointer data) {
     char *filename = gtk_file_chooser_get_filename(file_chooser);
     if (filename) {
         g_print("Opening file: %s\n", filename);
+
+#ifdef _WIN32
         // Use ShellExecute to open the file on Windows
         HINSTANCE result = ShellExecute(NULL, "open", filename, NULL, NULL, SW_SHOWNORMAL);
         if ((int)result <= 32) {
             g_printerr("Failed to open file: %d\n", (int)result);
         }
+#else
+        // Use xdg-open to open the file on Linux
+        char command[512];
+        snprintf(command, sizeof(command), "xdg-open \"%s\"", filename);
+        int ret = system(command);
+        if (ret != 0) {
+            g_printerr("Failed to open file: %s\n", filename);
+        }
+#endif
+
         g_free(filename);
     }
 }
@@ -778,7 +796,11 @@ void create_new_profile(GtkWidget *widget, gpointer data) {
 void save_profile(const char *profile_name, const char *bio, const char *image_path) {
     char profile_dir[256];
     snprintf(profile_dir, sizeof(profile_dir), "./ZoraNT/Profile/%s", profile_name);
-    mkdir(profile_dir);
+    #ifdef _WIN32
+        _mkdir(profile_dir); // Windows version of mkdir
+    #else
+        mkdir(profile_dir, 0755); // Linux version of mkdir with permissions
+    #endif
 
     char json_path[256];
     snprintf(json_path, sizeof(json_path), "%s/profile.json", profile_dir);

@@ -1,9 +1,15 @@
 #include <gtk/gtk.h>
 #include <time.h>
-#include <sysinfoapi.h>
 #include <unistd.h>
 #include <string.h>
 #include <libgen.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#include <sysinfoapi.h>
+#else
+#include <sys/sysinfo.h>
+#endif
 
 // Function prototypes for the tabs
 static void show_main_tab(GtkWidget *widget, gpointer data);
@@ -26,10 +32,20 @@ static void update_system_info(GtkTextBuffer *buffer) {
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
 
-    // Get system memory info
+#ifdef _WIN32
+    // Windows-specific memory info
     MEMORYSTATUSEX statex;
     statex.dwLength = sizeof(statex);
     GlobalMemoryStatusEx(&statex);
+    long total_memory = statex.ullTotalPhys / (1024 * 1024); // Convert to MB
+    long free_memory = statex.ullAvailPhys / (1024 * 1024);  // Convert to MB
+#else
+    // Linux-specific memory info
+    struct sysinfo info;
+    sysinfo(&info);
+    long total_memory = info.totalram / (1024 * 1024); // Convert to MB
+    long free_memory = info.freeram / (1024 * 1024);   // Convert to MB
+#endif
 
     // Get current directory
     char cwd[1024];
@@ -57,25 +73,24 @@ static void update_system_info(GtkTextBuffer *buffer) {
     // Update text buffer with live data
     char info_text[1024];
     snprintf(info_text, sizeof(info_text),
-        "System Time:  %02d:%02d:%02d\n"
-        "System Date:  %02d/%02d/%04d\n\n"
-        "Legacy Diskette:  %s\n\n"
-        "Primary Master:  %s\n"
-        "Primary Slave:  %s\n\n"
-        "Secondary Master:  CD-ROM\n"
-        "Secondary Slave:  None\n\n"
-        "System Memory:  %llu KB\n"
-        "Extended Memory:  %llu KB\n"
-        "Boot-time Diagnostic Screen: Enabled\n\n"
-        "Status: %s\n",
-        tm.tm_hour, tm.tm_min, tm.tm_sec,
-        tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900,
-        legacy_diskette,
-        primary_master,
-        primary_slave,
-        statex.ullTotalPhys / 1024,
-        statex.ullAvailPhys / 1024,
-        status);
+             "System Time:  %02d:%02d:%02d\n"
+             "System Date:  %02d/%02d/%04d\n\n"
+             "Legacy Diskette:  %s\n\n"
+             "Primary Master:  %s\n"
+             "Primary Slave:  %s\n\n"
+             "Secondary Master:  CD-ROM\n"
+             "Secondary Slave:  None\n\n"
+             "Total Memory:  %ld MB\n"
+             "Free Memory:  %ld MB\n"
+             "Status: %s\n",
+             tm.tm_hour, tm.tm_min, tm.tm_sec,
+             tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900,
+             legacy_diskette,
+             primary_master,
+             primary_slave,
+             total_memory,
+             free_memory,
+             status);
 
     gtk_text_buffer_set_text(buffer, info_text, -1);
 }
