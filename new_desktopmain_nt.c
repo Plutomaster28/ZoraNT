@@ -19,7 +19,7 @@
 #include <sys/stat.h>
 #endif
 
-// all libraries needed to function, if anything is missing from ythe install script please include it
+// all libraries needed to function, if anything is missing from the install script please include it
 // main function at line 583
 
 #define APP_DIRECTORY "./ZoraNT/Programs"  // Path to applications directory
