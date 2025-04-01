@@ -5,6 +5,7 @@ the program (our end), or is a problem with the formatting (also our end)
 
 Problems:
 
-Icons not showing
+Icons not showing (Create function where if on a linux system, default to a png icon)
+Have the program apply the appropriate theme to the program too
 Have to add compiler logic conditions to determine compilation runtime arguments
 Not sure if I broke it or not (If I did revert to previous stable vrsion)
