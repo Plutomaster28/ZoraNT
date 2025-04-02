@@ -23,7 +23,7 @@ Generally, SeaDrive is going to always try and automatically update you to the l
 
 ## OS Naming Conventions
 
-Fairly new, executables may be named slightly as to differentiate them, genetally they will follow this format:
+Fairly new, executables may be named slightly as to differentiate them, generally they will follow this format:
 
 | Windows | Linux          |
 | ------- | ------------------ |
