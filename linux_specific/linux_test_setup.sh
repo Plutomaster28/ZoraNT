@@ -58,7 +58,7 @@ fi
 
 # Compilation command
 echo "Compiling the application..."
-gcc -o ZoraNT_Linux_Build new_desktopmain_nt.c $(pkg-config --cflags --libs gtk+-3.0 gstreamer-1.0 json-glib-1.0)
+gcc -o ZoraNT64 new_desktopmain_nt.c $(pkg-config --cflags --libs gtk+-3.0 gstreamer-1.0 json-glib-1.0)
 if [ $? -ne 0 ]; then
     echo "Failed to compile the application."
     exit 1
