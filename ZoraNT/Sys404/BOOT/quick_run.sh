@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if the executable exists
-if [ -f "../../../ZoraNT.exe" ]; then
+if [ -f "ZoraNT.exe" ]; then
     echo "Executable found. Running ZoraNT..."
     ./ZoraNT.exe
 else
